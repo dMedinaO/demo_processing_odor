@@ -4,36 +4,36 @@
         "number_of_labels": 8,
         "content": [
             {
-                "label": "4",
-                "words": "aromatic, alcohol, water, hydrocarbo, hydrocar, phenolic, spices, solvent, terpenes, synthetic, medicinal, ammonia, chemical, beverage"
-            },
-            {
-                "label": "1",
-                "words": "raw, metallic, clean, coal_tar, burnt, nose_feel, industrial_odours, cooked, dry, sickening, bloody, smokey, people_&_animals, boiled, cloth, nauseating, rotten, green, fuel, bland, fried, dead_animal, waxy, gas_station, waste, sharp, cleaning_materials, fresh, bitter, tobacco_smoke, brown, salty"
-            },
-            {
                 "label": "2",
-                "words": "sulp, chlorinous, mol, estery, lem, hircine, sulphur, foul, other, rancid, ozonou, oriental, balsamic, alliaceous, caramel, ylang, ambrosial, soft_oriental, unripe, putrid"
-            },
-            {
-                "label": "5",
-                "words": "nutty, earthy, marshy, minty, sweet, musty, fishy"
+                "words": "balsamic, mol, unripe, putrid, caramel, hircine, ambrosial, lem, soft_oriental, estery, other, sulp, sulphur, oriental, rancid, ylang, foul, ozonou, chlorinous, alliaceous"
             },
             {
                 "label": "3",
-                "words": "grains, grassy, baked, poultry, non-food_items, cabbage, non-vegetarian, chocolate, popcorn, vegetables, restaurant, bakery, dairy, food"
+                "words": "dairy, baked, restaurant, grains, grassy, non-vegetarian, poultry, popcorn, food, chocolate, cabbage, non-food_items, vegetables, bakery"
+            },
+            {
+                "label": "1",
+                "words": "cleaning_materials, burnt, salty, bitter, dry, green, bland, clean, brown, gas_station, metallic, cooked, boiled, industrial_odours, tobacco_smoke, fresh, fuel, fried, sharp, nose_feel, waste, bloody, coal_tar, people_&_animals, raw, cloth, rotten, dead_animal, waxy, nauseating, sickening, smokey"
             },
             {
                 "label": "0",
-                "words": "characteristic, ripe, fragrant, non-citrus_fruity, dry_fruit, plants, soft_floral, fruity, citrus, herbaceous, nature, lemon, resinous, floral, vegetation"
+                "words": "floral, lemon, vegetation, dry_fruit, non-citrus_fruity, fragrant, ripe, nature, citrus, soft_floral, resinous, characteristic, fruity, plants, herbaceous"
+            },
+            {
+                "label": "5",
+                "words": "earthy, nutty, minty, sweet, musty, fishy, marshy"
+            },
+            {
+                "label": "4",
+                "words": "beverage, phenolic, alcohol, hydrocar, solvent, terpenes, water, synthetic, hydrocarbo, medicinal, aromatic, ammonia, chemical, spices"
             },
             {
                 "label": "7",
-                "words": "woody_oriental, dry_woods, mossy_woods, woody, pine"
+                "words": "woody_oriental, woody, dry_woods, pine, mossy_woods"
             },
             {
                 "label": "6",
-                "words": "sewery, pungent, septic, microbiological, fecal, microbial"
+                "words": "fecal, pungent, microbial, microbiological, sewery, septic"
             }
         ]
     },
@@ -42,36 +42,36 @@
         "number_of_labels": 8,
         "content": [
             {
-                "label": "2",
-                "words": "aromatic, sulp, chlorinous, industrial_odours, estery, hircine, sulphur, rancid, solvent, ozonou, pungent, balsamic, alliaceous, terpenes, resinous, synthetic, ambrosial, medicinal, ammonia, chemical"
+                "label": "6",
+                "words": "balsamic, phenolic, hircine, alcohol, ambrosial, solvent, terpenes, industrial_odours, pungent, synthetic, estery, sulp, sulphur, rancid, medicinal, aromatic, ammonia, chemical, resinous, ozonou, chlorinous, alliaceous"
             },
             {
                 "label": "0",
-                "words": "raw, metallic, clean, burnt, cooked, dry, foul, cloth, rotten, green, fried, waste, sharp, cleaning_materials, fresh, brown, salty"
-            },
-            {
-                "label": "6",
-                "words": "nutty, earthy, characteristic, nose_feel, sewery, marshy, sickening, lem, bloody, other, smokey, minty, nauseating, sweet, bland, musty, waxy, bitter, unripe, fishy, putrid"
-            },
-            {
-                "label": "3",
-                "words": "grains, grassy, plants, poultry, non-food_items, spices, cabbage, non-vegetarian, people_&_animals, popcorn, nature, vegetables, fecal, restaurant, vegetation, food"
-            },
-            {
-                "label": "4",
-                "words": "mol, coal_tar, woody_oriental, dry_woods, mossy_woods, oriental, dead_animal, woody, gas_station, ylang, tobacco_smoke, pine, soft_oriental"
+                "words": "dairy, baked, restaurant, grains, beverage, caramel, cooked, non-vegetarian, boiled, water, poultry, popcorn, food, chocolate, fuel, people_&_animals, cabbage, non-food_items, vegetables, spices, bakery"
             },
             {
                 "label": "1",
-                "words": "ripe, fragrant, non-citrus_fruity, dry_fruit, soft_floral, fruity, citrus, phenolic, herbaceous, lemon, floral"
+                "words": "cleaning_materials, burnt, dry, green, lemon, clean, brown, metallic, fresh, ripe, fried, sharp, waste, citrus, raw, cloth, rotten, foul"
             },
             {
-                "label": "7",
-                "words": "baked, alcohol, water, hydrocarbo, hydrocar, boiled, chocolate, fuel, caramel, bakery, dairy, beverage"
+                "label": "4",
+                "words": "mol, woody_oriental, woody, gas_station, soft_oriental, dry_woods, tobacco_smoke, oriental, ylang, coal_tar, mossy_woods, dead_animal"
+            },
+            {
+                "label": "3",
+                "words": "salty, bitter, unripe, earthy, putrid, bland, lem, other, nutty, nose_feel, bloody, sewery, minty, waxy, nauseating, sweet, musty, characteristic, fruity, fishy, marshy, sickening, smokey"
+            },
+            {
+                "label": "2",
+                "words": "floral, vegetation, grassy, dry_fruit, non-citrus_fruity, fragrant, nature, pine, soft_floral, plants, herbaceous"
             },
             {
                 "label": "5",
-                "words": "septic, microbiological, microbial"
+                "words": "hydrocar, hydrocarbo"
+            },
+            {
+                "label": "7",
+                "words": "fecal, microbial, microbiological, septic"
             }
         ]
     },
@@ -80,36 +80,36 @@
         "number_of_labels": 8,
         "content": [
             {
-                "label": "3",
-                "words": "aromatic, clean, coal_tar, baked, industrial_odours, alcohol, spices, solvent, pungent, balsamic, fuel, gas_station, microbial, waste, bakery, resinous, cleaning_materials, tobacco_smoke, synthetic, medicinal, ammonia, chemical"
-            },
-            {
-                "label": "5",
-                "words": "raw, grains, chlorinous, cooked, dry, poultry, water, foul, non-food_items, cloth, chocolate, rotten, popcorn, dead_animal, nature, microbiological, fecal, dairy, food, beverage"
-            },
-            {
-                "label": "7",
-                "words": "metallic, sulp, mol, burnt, estery, hircine, sulphur, hydrocarbo, hydrocar, rancid, boiled, septic, alliaceous, terpenes, putrid"
-            },
-            {
-                "label": "1",
-                "words": "nutty, earthy, nose_feel, sickening, fruity, minty, nauseating, sweet, musty, woody, bitter, fishy, salty"
+                "label": "4",
+                "words": "balsamic, beverage, caramel, alcohol, woody_oriental, woody, lem, other, fresh, ylang, hydrocarbo, mossy_woods, sewery, minty, ozonou"
             },
             {
                 "label": "2",
-                "words": "grassy, ripe, woody_oriental, fragrant, dry_woods, non-citrus_fruity, dry_fruit, plants, soft_floral, citrus, phenolic, cabbage, non-vegetarian, oriental, herbaceous, green, caramel, vegetables, lemon, floral, pine, soft_oriental, vegetation"
+                "words": "dairy, restaurant, fecal, pungent, sulp, sulphur, rancid, dead_animal, non-food_items, bakery"
             },
             {
-                "label": "0",
-                "words": "characteristic, sewery, marshy, bloody, other, smokey, ozonou, mossy_woods, bland, fried, waxy, ylang, sharp, fresh, unripe, brown"
+                "label": "1",
+                "words": "cleaning_materials, mol, burnt, clean, solvent, industrial_odours, synthetic, microbial, nose_feel, waste, bloody, ammonia, microbiological, cloth, rotten, chemical, septic"
+            },
+            {
+                "label": "5",
+                "words": "salty, bitter, unripe, earthy, putrid, bland, nutty, fried, sharp, raw, waxy, nauseating, sweet, musty, characteristic, fruity, fishy, marshy, sickening, smokey"
+            },
+            {
+                "label": "7",
+                "words": "baked, green, phenolic, lemon, cooked, boiled, terpenes, dry_fruit, popcorn, chocolate, non-citrus_fruity, ripe, oriental, aromatic, citrus"
             },
             {
                 "label": "6",
-                "words": "lem, people_&_animals, restaurant"
+                "words": "floral, grains, vegetation, grassy, dry_woods, non-vegetarian, water, poultry, food, fragrant, nature, medicinal, pine, soft_floral, people_&_animals, cabbage, plants, chlorinous, herbaceous, vegetables, spices"
             },
             {
-                "label": "4",
-                "words": "ambrosial"
+                "label": "3",
+                "words": "dry, hircine, ambrosial, brown, hydrocar, metallic, soft_oriental, estery, resinous, foul, alliaceous"
+            },
+            {
+                "label": "0",
+                "words": "gas_station, tobacco_smoke, fuel, coal_tar"
             }
         ]
     },
@@ -118,16 +118,16 @@
         "number_of_labels": 3,
         "content": [
             {
-                "label": "0",
-                "words": "aromatic, raw, metallic, sulp, chlorinous, grassy, clean, characteristic, ripe, coal_tar, burnt, nose_feel, baked, woody_oriental, industrial_odours, fragrant, estery, dry_woods, cooked, dry, sickening, non-citrus_fruity, hircine, alcohol, dry_fruit, plants, sulphur, water, foul, hydrocarbo, soft_floral, smokey, fruity, citrus, hydrocar, phenolic, rancid, spices, solvent, ozonou, people_&_animals, mossy_woods, boiled, cloth, pungent, oriental, herbaceous, nauseating, rotten, balsamic, green, fuel, septic, bland, alliaceous, fried, dead_animal, nature, caramel, microbiological, woody, waxy, gas_station, fecal, microbial, terpenes, waste, restaurant, lemon, ylang, bakery, sharp, resinous, cleaning_materials, fresh, floral, bitter, tobacco_smoke, pine, synthetic, ambrosial, soft_oriental, unripe, vegetation, medicinal, ammonia, chemical, brown, salty, beverage, putrid"
+                "label": "2",
+                "words": "balsamic, floral, caramel, green, phenolic, lemon, vegetation, hircine, grassy, ambrosial, brown, woody_oriental, woody, soft_oriental, dry_woods, terpenes, dry_fruit, estery, non-citrus_fruity, sulp, fragrant, ripe, sulphur, oriental, rancid, nature, ylang, medicinal, aromatic, pine, citrus, soft_floral, mossy_woods, resinous, fruity, ozonou, plants, chlorinous, herbaceous, vegetables, spices"
             },
             {
-                "label": "2",
-                "words": "nutty, earthy, mol, sewery, marshy, lem, bloody, other, minty, sweet, musty, fishy"
+                "label": "0",
+                "words": "dairy, cleaning_materials, restaurant, grains, dry, beverage, clean, alcohol, hydrocar, solvent, fecal, non-vegetarian, industrial_odours, water, pungent, synthetic, microbial, poultry, popcorn, food, fresh, chocolate, fuel, waste, hydrocarbo, ammonia, microbiological, people_&_animals, cloth, dead_animal, chemical, septic, cabbage, non-food_items, bakery"
             },
             {
                 "label": "1",
-                "words": "grains, poultry, non-food_items, cabbage, non-vegetarian, chocolate, popcorn, vegetables, dairy, food"
+                "words": "mol, burnt, salty, baked, bitter, unripe, earthy, putrid, bland, gas_station, lem, metallic, cooked, boiled, tobacco_smoke, other, nutty, fried, sharp, nose_feel, bloody, coal_tar, raw, sewery, rotten, minty, waxy, nauseating, sweet, musty, characteristic, foul, fishy, marshy, sickening, smokey, alliaceous"
             }
         ]
     },
@@ -136,36 +136,36 @@
         "number_of_labels": 8,
         "content": [
             {
-                "label": "1",
-                "words": "aromatic, metallic, sulp, mol, coal_tar, industrial_odours, alcohol, sulphur, water, foul, solvent, people_&_animals, cloth, pungent, rotten, balsamic, fuel, alliaceous, dead_animal, nature, gas_station, terpenes, waste, resinous, cleaning_materials, tobacco_smoke, synthetic, medicinal, ammonia, chemical"
-            },
-            {
-                "label": "4",
-                "words": "raw, clean, burnt, baked, cooked, dry, rancid, boiled, nauseating, fried, restaurant, sharp, fresh, brown, salty"
-            },
-            {
-                "label": "0",
-                "words": "nutty, earthy, characteristic, ripe, marshy, sickening, non-citrus_fruity, dry_fruit, other, smokey, fruity, citrus, minty, phenolic, sweet, green, musty, waxy, unripe, fishy"
-            },
-            {
-                "label": "3",
-                "words": "grains, grassy, plants, poultry, non-food_items, spices, cabbage, non-vegetarian, popcorn, vegetables, lemon, vegetation, food"
+                "label": "5",
+                "words": "balsamic, unripe, caramel, bland, terpenes, dry_fruit, estery, fresh, non-citrus_fruity, fragrant, ripe, rancid, sharp, raw, sweet, characteristic, fruity, sickening"
             },
             {
                 "label": "6",
-                "words": "chlorinous, nose_feel, fragrant, estery, soft_floral, herbaceous, floral"
+                "words": "dairy, salty, dry, beverage, hircine, clean, alcohol, hydrocar, lem, fecal, water, fuel, waste, hydrocarbo, bloody, cloth, sewery, fishy, septic"
             },
             {
-                "label": "2",
-                "words": "woody_oriental, dry_woods, ozonou, mossy_woods, oriental, woody, ylang, pine, soft_oriental"
+                "label": "0",
+                "words": "cleaning_materials, industrial_odours"
             },
             {
                 "label": "7",
-                "words": "sewery, bloody, septic, microbiological, fecal, microbial, putrid"
+                "words": "mol, bitter, phenolic, gas_station, metallic, solvent, pungent, synthetic, microbial, tobacco_smoke, sulp, sulphur, nature, medicinal, aromatic, ammonia, microbiological, coal_tar, people_&_animals, rotten, dead_animal, chemical, resinous, alliaceous"
             },
             {
-                "label": "5",
-                "words": "lem, hircine, hydrocarbo, hydrocar, chocolate, bland, caramel, bakery, dairy, bitter, ambrosial, beverage"
+                "label": "2",
+                "words": "burnt, baked, restaurant, cooked, boiled, chocolate, fried, waxy, nauseating, smokey, bakery"
+            },
+            {
+                "label": "1",
+                "words": "floral, earthy, putrid, green, lemon, brown, woody, other, pine, citrus, minty, foul, marshy, chlorinous"
+            },
+            {
+                "label": "3",
+                "words": "grains, vegetation, grassy, non-vegetarian, poultry, popcorn, food, nutty, cabbage, plants, non-food_items, herbaceous, vegetables, spices"
+            },
+            {
+                "label": "4",
+                "words": "ambrosial, woody_oriental, soft_oriental, dry_woods, oriental, ylang, nose_feel, soft_floral, mossy_woods, musty, ozonou"
             }
         ]
     },
@@ -174,68 +174,68 @@
         "number_of_labels": 16,
         "content": [
             {
-                "label": "13",
-                "words": "aromatic, metallic, industrial_odours, solvent, alliaceous, resinous, synthetic, medicinal, ammonia, chemical"
-            },
-            {
-                "label": "2",
-                "words": "raw, burnt, baked, cooked, boiled, fried, sharp"
-            },
-            {
-                "label": "3",
-                "words": "sulp, hircine, sulphur, rancid, rotten, balsamic, terpenes"
-            },
-            {
-                "label": "5",
-                "words": "nutty, earthy, ripe, marshy, dry_fruit, fruity, minty, sweet, musty, waxy, fishy"
-            },
-            {
-                "label": "14",
-                "words": "grains, poultry, non-food_items, spices, non-vegetarian, people_&_animals, chocolate, fuel, popcorn, vegetables, restaurant, bakery, dairy, food"
-            },
-            {
-                "label": "6",
-                "words": "chlorinous, non-citrus_fruity, other, citrus, phenolic, cabbage, green, caramel, lemon, brown"
-            },
-            {
-                "label": "0",
-                "words": "mol, clean, characteristic, sewery, lem, bloody, foul, cloth, pungent, waste, cleaning_materials, fresh, unripe, salty, putrid"
-            },
-            {
-                "label": "12",
-                "words": "grassy, plants, nature, vegetation"
-            },
-            {
-                "label": "11",
-                "words": "coal_tar, nose_feel, smokey, gas_station, tobacco_smoke"
-            },
-            {
-                "label": "7",
-                "words": "woody_oriental, ozonou, oriental, ylang, ambrosial, soft_oriental"
-            },
-            {
-                "label": "10",
-                "words": "fragrant, estery, soft_floral, herbaceous, floral"
-            },
-            {
-                "label": "1",
-                "words": "dry_woods, dry, mossy_woods, dead_animal, woody, pine"
+                "label": "9",
+                "words": "balsamic, hircine, terpenes, sulp, sulphur, rancid, rotten"
             },
             {
                 "label": "8",
-                "words": "sickening, nauseating, bland"
+                "words": "dairy, restaurant, grains, non-vegetarian, poultry, popcorn, food, chocolate, fuel, people_&_animals, non-food_items, vegetables, spices, bakery"
+            },
+            {
+                "label": "3",
+                "words": "cleaning_materials, mol, salty, unripe, putrid, clean, lem, pungent, fresh, waste, bloody, cloth, sewery, characteristic, foul"
+            },
+            {
+                "label": "5",
+                "words": "burnt, baked, cooked, boiled, fried, sharp, raw"
+            },
+            {
+                "label": "1",
+                "words": "bitter, beverage, alcohol, water"
+            },
+            {
+                "label": "0",
+                "words": "floral, estery, fragrant, soft_floral, herbaceous"
+            },
+            {
+                "label": "6",
+                "words": "dry, woody, dry_woods, pine, mossy_woods, dead_animal"
             },
             {
                 "label": "15",
-                "words": "alcohol, water, bitter, beverage"
+                "words": "earthy, dry_fruit, nutty, ripe, minty, waxy, sweet, musty, fruity, fishy, marshy"
+            },
+            {
+                "label": "11",
+                "words": "caramel, green, phenolic, lemon, brown, other, non-citrus_fruity, citrus, cabbage, chlorinous"
+            },
+            {
+                "label": "14",
+                "words": "bland, nauseating, sickening"
+            },
+            {
+                "label": "2",
+                "words": "vegetation, grassy, nature, plants"
+            },
+            {
+                "label": "10",
+                "words": "ambrosial, woody_oriental, soft_oriental, oriental, ylang, ozonou"
             },
             {
                 "label": "4",
-                "words": "hydrocarbo, hydrocar"
+                "words": "hydrocar, hydrocarbo"
             },
             {
-                "label": "9",
-                "words": "septic, microbiological, fecal, microbial"
+                "label": "7",
+                "words": "gas_station, tobacco_smoke, nose_feel, coal_tar, smokey"
+            },
+            {
+                "label": "13",
+                "words": "metallic, solvent, industrial_odours, synthetic, medicinal, aromatic, ammonia, chemical, resinous, alliaceous"
+            },
+            {
+                "label": "12",
+                "words": "fecal, microbial, microbiological, septic"
             }
         ]
     }
