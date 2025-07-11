@@ -1,4 +1,6 @@
 # folders to ignore
 data
+tmp
+figures
+results
 __pycache__
-#

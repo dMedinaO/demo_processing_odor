@@ -75,7 +75,7 @@
         "compute_labels":true
     },
 
-    "Kmeans" : {
+    "KMeans" : {
         "n_clusters":8, 
         "init":"k-means++", 
         "n_init":"auto", 

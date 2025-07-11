@@ -15,10 +15,14 @@ from sklearn.cluster import (
     OPTICS,
     SpectralClustering
     )
+import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
 import pandas as pd
 import logging
 import itertools
+import json
+import math
 
 clustering_methods_map = {
     "KMeans": KMeans,
@@ -26,17 +30,25 @@ clustering_methods_map = {
     "AgglomerativeClustering": AgglomerativeClustering,
     "AffinityPropagation": AffinityPropagation,
     "Birch": Birch,
-    "BisectingKMeans": BisectingKMeans
+    "BisectingKMeans": BisectingKMeans,
+    "HDBSCAN": HDBSCAN,
+    "OPTICS": OPTICS,
+    "MeanShift": MeanShift,
+    "DBSCAN": DBSCAN
 }
 
 def get_kmeans_param_grid(n_clusters_range = range(2, 11)):
+    algorithms = ["lloyd", "elkan"]
     return [
         {
-            "id_test": f"kmeans_{n}",
+            "id_test": f"kmeans_{n}_{algorithm}",
             "name_method": "KMeans",
-            "params": {"n_clusters": n}
+            "params": {"n_clusters": n,
+                        "random_state": 42,
+                        "algorithm": algorithm}
         }
         for n in n_clusters_range
+        for algorithm in algorithms
     ]
 
 def get_agglomerative_param_grid(n_clusters_range = range(2, 11), metrics = None, linkages = None):
@@ -69,26 +81,29 @@ def get_spectral_param_grid(n_clusters_range = range(2, 11), affinities = None):
             "name_method": "SpectralClustering",
             "params": {
                 "n_clusters": n,
+                "random_state": 42,
                 "affinity": affinity
             }
         }
         for n, affinity in itertools.product(n_clusters_range, affinities)
     ]
 
-def get_affinity_propagation_param_grid(damping_values = None, preferences = None):
+def get_affinity_propagation_param_grid(damping_values = None, preference_values = None):
     if damping_values is None:
         damping_values = [0.5, 0.7, 0.9]
-    if preferences is None:
-        preferences = [None, -50, -100]
+    if preference_values is None:
+        preference_values = [None, -50, -10, 0, 10, 50]
 
     param_dicts = []
-    for damping, preference in itertools.product(damping_values, preferences):
+    for damping, preference in itertools.product(damping_values, preference_values):
+        pref_str = "default" if preference is None else preference
         param_dicts.append({
-            "id_test": f"affinity_{damping}_{preference}",
+            "id_test": f"affinity_{damping}_{pref_str}",
             "name_method": "AffinityPropagation",
             "params": {
                 "damping": damping,
-                "preference": preference
+                "preference": preference,
+                "random_state": 42,
             }
         })
     return param_dicts
@@ -97,7 +112,7 @@ def get_birch_param_grid(n_clusters_range = range(2, 11), thresholds = None, bra
     if thresholds is None:
         thresholds = [0.3, 0.5, 0.7]
     if branching_factors is None:
-        branching_factors = [25, 50]
+        branching_factors = [25, 50, 75, 100]
 
     param_dicts = []
     for n, t, b in itertools.product(n_clusters_range, thresholds, branching_factors):
@@ -112,17 +127,22 @@ def get_birch_param_grid(n_clusters_range = range(2, 11), thresholds = None, bra
         })
     return param_dicts
 
-def get_bisecting_kmeans_param_grid(n_clusters_range = range(2, 11), bisecting_strategy = None):
+def get_bisecting_kmeans_param_grid(n_clusters_range = range(2, 11), algorithm = None, bisecting_strategy = None):
+    
     if bisecting_strategy is None:
-        bisecting_strategy = ["largest_cluster", "largest_variance"]
+        bisecting_strategy = ["biggest_inertia", "largest_cluster"]
+    if algorithm is None:
+        algorithm = ["lloyd", "elkan"]
 
     param_dicts = []
-    for n, strategy in itertools.product(n_clusters_range, bisecting_strategy):
+    for n, strategy, algo in itertools.product(n_clusters_range, bisecting_strategy, algorithm):
         param_dicts.append({
-            "id_test": f"bisecting_{n}_{strategy}",
+            "id_test": f"bisecting_{n}_{strategy}_{algo}",
             "name_method": "BisectingKMeans",
             "params": {
                 "n_clusters": n,
+                "random_state": 42,
+                "algorithm": algo,
                 "bisecting_strategy": strategy
             }
         })
@@ -176,7 +196,7 @@ def estimated_metrics(dataset, labels, name_method):
             "proportion_labels" : np.nan,
             }
 
-def apply_clustering(name_method, clustering_methods_map, dataset, **kwargs):
+def apply_clustering(name_method, dataset, **kwargs):
     if name_method not in clustering_methods_map:
         raise ValueError(f"Unknown clustering method: {name_method}")
     
@@ -194,9 +214,10 @@ def apply_clustering(name_method, clustering_methods_map, dataset, **kwargs):
 
     return model, metrics
 
-def run_exploration(dataset, dict_params, clustering_method_map):
+def run_exploration(dataset, dict_params):
     
     matrix_result = []
+    models = {}  # Dictionary to store models keyed by their id_test
     
     for param_set in dict_params:
         id_test = param_set.get("id_test", "unknown")
@@ -204,7 +225,7 @@ def run_exploration(dataset, dict_params, clustering_method_map):
         params = param_set.get("params", {})
         
         try:
-            model, metrics = apply_clustering(name_method, clustering_methods_map, dataset, **params)
+            model, metrics = apply_clustering(name_method, dataset, **params)
             row = {
                 "id_test": id_test,
                 "name_method": name_method, 
@@ -214,6 +235,7 @@ def run_exploration(dataset, dict_params, clustering_method_map):
                 "n_labels": metrics.get("n_labels"),
                 "proportion_labels": metrics.get("proportion_labels"),
                 }
+            models[id_test] = model
             
         except Exception as e:
             logging.warning(f"Failed to apply clustering for test ID '{id_test}': {e}")
@@ -226,38 +248,92 @@ def run_exploration(dataset, dict_params, clustering_method_map):
                 "n_labels": np.nan,
                 "proportion_labels": np.nan
                 }
+            models[id_test] = None  # Explicitly store None for traceability
                 
         matrix_result.append(row)
 
-    return pd.DataFrame(matrix_result)
+    return pd.DataFrame(matrix_result), models
 
-def generate_clustering_param_dicts(
-    n_clusters_range=range(3, 11),
-    metrics = None,
-    linkages = None
-):
+def extract_cluster_labels(dataframe, model_dict, selected_models):
     
-    if metrics is None:
-        metrics = ["euclidean", "l1", "l2", "manhattan", "cosine", "precomputed"]
-    if linkages is None:
-        linkages = ["ward", "complete", "average", "single"]
+    dataframe_copy = dataframe.copy()
+    
+    for model in selected_models:
+        if model in model_dict:
+            dataframe_copy[model] = model_dict[model].labels_.astype(str)
+            
+        else:
+            print(f"Warning: Model '{model}' not found in the dictionary.")
+            
+    return dataframe_copy
 
-    param_dicts = []
+def extract_clusters(dataframe, selected_models, word_column = "word", save_to_json = False, file_name = "cluster_words"):
+    
+    dataframe_copy = dataframe.copy()
 
-    for n_clusters, metric, linkage in itertools.product(n_clusters_range, metrics, linkages):
-        if linkage == "ward" and metric != "euclidean":
-            continue
+    clusters = {}
+    
+    for col in selected_models:
+        cluster_dict = {}
+        for label in dataframe_copy[col].unique():
+            words = dataframe_copy[dataframe_copy[col] == label][word_column].tolist()
+            cluster_dict[str(label)] = ', '.join(words)
+        clusters[col] = cluster_dict
         
-        id_test = f"{n_clusters}_{metric}_{linkage}"
-        
-        param_dicts.append({
-            "id_test": id_test,
-            "params": {
-                "n_clusters": n_clusters,
-                "metric": metric,
-                "linkage": linkage
-            }
-        })
+    if save_to_json:
+        with open(f"../data/{file_name}.json", 'w', encoding = 'utf-8') as f:
+            json.dump(clusters, f, indent = 4, ensure_ascii = False)
+    
+    return clusters
 
-    return param_dicts
+def plot_cluster_projections(df, clustering_columns, coordinates = "", tsne_cols = ('tsne_1', 'tsne_2'), umap_cols = ('umap_1', 'umap_2'), save_to_png = False, file_name = "clustering_words"):
+    """
+    Plots scatterplots of clustering results over t-SNE and UMAP coordinate systems.
 
+    Parameters:
+    - df: pandas DataFrame containing clustering columns and coordinates.
+    - clustering_columns: list of column names (str) with cluster labels.
+    - tsne_cols: tuple with column names for t-SNE coordinates.
+    - umap_cols: tuple with column names for UMAP coordinates.
+    """
+    total_plots = len(clustering_columns) * 2  # Each clustering column gets 2 plots (t-SNE + UMAP)
+    cols = 4
+    rows = math.ceil(total_plots / cols)
+    
+    fig, axes = plt.subplots(rows, cols, figsize=(5 * cols, 5 * rows))
+    axes = axes.flatten()  # Make axes indexable in 1D
+
+    for i, cluster_col in enumerate(clustering_columns):
+        # Plot on t-SNE
+        sns.scatterplot(
+            data=df,
+            x=tsne_cols[0],
+            y=tsne_cols[1],
+            hue=cluster_col,
+            palette="tab10",
+            ax=axes[2*i]
+        )
+        axes[2*i].set_title(f"{cluster_col}_{coordinates} on t-SNE")
+        # axes[2*i].legend().remove()
+
+        # Plot on UMAP
+        sns.scatterplot(
+            data=df,
+            x=umap_cols[0],
+            y=umap_cols[1],
+            hue=cluster_col,
+            palette="tab10",
+            ax=axes[2*i + 1]
+        )
+        axes[2*i + 1].set_title(f"{cluster_col}_{coordinates} on UMAP")
+        axes[2*i + 1].legend().remove()
+
+    # Remove any extra subplots
+    for j in range(2 * len(clustering_columns), len(axes)):
+        fig.delaxes(axes[j])
+
+    plt.tight_layout()
+    plt.show()
+    
+    if save_to_png:
+        plt.savefig(f'../figures/{file_name}.png', dpi = 300, transparent = True, bbox_inches = "tight")
